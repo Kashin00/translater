@@ -23,6 +23,9 @@
 		BAC330512B000F820011CFDE /* Languages.json in Resources */ = {isa = PBXBuildFile; fileRef = BAC330502B000F820011CFDE /* Languages.json */; };
 		BAC330542B00117E0011CFDE /* FileReaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330532B00117E0011CFDE /* FileReaderService.swift */; };
 		BAC330572B0012840011CFDE /* FileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330562B0012840011CFDE /* FileError.swift */; };
+		BAC3305A2B0019970011CFDE /* MainScreenViewModelDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330592B0019970011CFDE /* MainScreenViewModelDataFetcher.swift */; };
+		BAC3305C2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3305B2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift */; };
+		BAC3305E2B0019E20011CFDE /* DataDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3305D2B0019E20011CFDE /* DataDecoderService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		BAC330502B000F820011CFDE /* Languages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Languages.json; sourceTree = "<group>"; };
 		BAC330532B00117E0011CFDE /* FileReaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReaderService.swift; sourceTree = "<group>"; };
 		BAC330562B0012840011CFDE /* FileError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileError.swift; sourceTree = "<group>"; };
+		BAC330592B0019970011CFDE /* MainScreenViewModelDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelDataFetcher.swift; sourceTree = "<group>"; };
+		BAC3305B2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelDataHandler.swift; sourceTree = "<group>"; };
+		BAC3305D2B0019E20011CFDE /* DataDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 		BAC330392AFFE7650011CFDE /* MainScreenFlow */ = {
 			isa = PBXGroup;
 			children = (
+				BAC330582B0019890011CFDE /* Helpers */,
 				BAC330422AFFE8FA0011CFDE /* ViewModel */,
 				BAC3303F2AFFE8640011CFDE /* Coordinator */,
 				BAC3303E2AFFE85E0011CFDE /* View */,
@@ -173,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				BAC330532B00117E0011CFDE /* FileReaderService.swift */,
+				BAC3305D2B0019E20011CFDE /* DataDecoderService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -183,6 +191,15 @@
 				BAC330562B0012840011CFDE /* FileError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		BAC330582B0019890011CFDE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BAC330592B0019970011CFDE /* MainScreenViewModelDataFetcher.swift */,
+				BAC3305B2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +276,8 @@
 				BAC330222AFFE0A30011CFDE /* AppDelegate.swift in Sources */,
 				BAC330572B0012840011CFDE /* FileError.swift in Sources */,
 				BAC330492AFFEBC10011CFDE /* TranslateView.swift in Sources */,
+				BAC3305A2B0019970011CFDE /* MainScreenViewModelDataFetcher.swift in Sources */,
+				BAC3305E2B0019E20011CFDE /* DataDecoderService.swift in Sources */,
 				BAC330442AFFE9070011CFDE /* MainScreenViewModel.swift in Sources */,
 				BAC330462AFFE90E0011CFDE /* MainScreenViewModelInput.swift in Sources */,
 				BAC3303B2AFFE7830011CFDE /* MainCoordinatinator.swift in Sources */,
@@ -267,6 +286,7 @@
 				BAC330412AFFE8730011CFDE /* MainScreenCoordinator.swift in Sources */,
 				BAC330242AFFE0A30011CFDE /* SceneDelegate.swift in Sources */,
 				BAC330362AFFE6680011CFDE /* MainViewController.swift in Sources */,
+				BAC3305C2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift in Sources */,
 				BAC330542B00117E0011CFDE /* FileReaderService.swift in Sources */,
 				BAC3304F2B000F5C0011CFDE /* Language.swift in Sources */,
 			);

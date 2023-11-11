@@ -30,6 +30,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTranslateView()
+        
+        viewModel?.viewLoaded()
     }
 }
 
