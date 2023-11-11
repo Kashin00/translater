@@ -1,0 +1,8 @@
+1) Create UI
+2) Features
+	- Language changing
+	- History
+	- Saved
+	- Text from voice 
+	- Text from camera
+	
