@@ -19,6 +19,10 @@
 		BAC330462AFFE90E0011CFDE /* MainScreenViewModelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330452AFFE90E0011CFDE /* MainScreenViewModelInput.swift */; };
 		BAC330492AFFEBC10011CFDE /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330482AFFEBC10011CFDE /* TranslateView.swift */; };
 		BAC3304B2B00077E0011CFDE /* EntryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3304A2B00077E0011CFDE /* EntryTextView.swift */; };
+		BAC3304F2B000F5C0011CFDE /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3304E2B000F5C0011CFDE /* Language.swift */; };
+		BAC330512B000F820011CFDE /* Languages.json in Resources */ = {isa = PBXBuildFile; fileRef = BAC330502B000F820011CFDE /* Languages.json */; };
+		BAC330542B00117E0011CFDE /* FileReaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330532B00117E0011CFDE /* FileReaderService.swift */; };
+		BAC330572B0012840011CFDE /* FileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330562B0012840011CFDE /* FileError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		BAC330452AFFE90E0011CFDE /* MainScreenViewModelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelInput.swift; sourceTree = "<group>"; };
 		BAC330482AFFEBC10011CFDE /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
 		BAC3304A2B00077E0011CFDE /* EntryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTextView.swift; sourceTree = "<group>"; };
+		BAC3304E2B000F5C0011CFDE /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		BAC330502B000F820011CFDE /* Languages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Languages.json; sourceTree = "<group>"; };
+		BAC330532B00117E0011CFDE /* FileReaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReaderService.swift; sourceTree = "<group>"; };
+		BAC330562B0012840011CFDE /* FileError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,7 @@
 		BAC330202AFFE0A30011CFDE /* Translator */ = {
 			isa = PBXGroup;
 			children = (
+				BAC3304C2B000F460011CFDE /* Domain */,
 				BAC330382AFFE74C0011CFDE /* MainCoordinatinator */,
 				BAC330372AFFE7330011CFDE /* Resources */,
 				BAC330392AFFE7650011CFDE /* MainScreenFlow */,
@@ -83,6 +92,7 @@
 				BAC330232AFFE0A30011CFDE /* SceneDelegate.swift */,
 				BAC3302A2AFFE0A40011CFDE /* Assets.xcassets */,
 				BAC3302C2AFFE0A40011CFDE /* LaunchScreen.storyboard */,
+				BAC330502B000F820011CFDE /* Languages.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -139,6 +149,40 @@
 				BAC3304A2B00077E0011CFDE /* EntryTextView.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BAC3304C2B000F460011CFDE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				BAC330552B0012780011CFDE /* Errors */,
+				BAC330522B0011530011CFDE /* Services */,
+				BAC3304D2B000F4D0011CFDE /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		BAC3304D2B000F4D0011CFDE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BAC3304E2B000F5C0011CFDE /* Language.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BAC330522B0011530011CFDE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BAC330532B00117E0011CFDE /* FileReaderService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BAC330552B0012780011CFDE /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				BAC330562B0012840011CFDE /* FileError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC330512B000F820011CFDE /* Languages.json in Resources */,
 				BAC3302E2AFFE0A40011CFDE /* LaunchScreen.storyboard in Resources */,
 				BAC3302B2AFFE0A40011CFDE /* Assets.xcassets in Resources */,
 			);
@@ -212,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAC330222AFFE0A30011CFDE /* AppDelegate.swift in Sources */,
+				BAC330572B0012840011CFDE /* FileError.swift in Sources */,
 				BAC330492AFFEBC10011CFDE /* TranslateView.swift in Sources */,
 				BAC330442AFFE9070011CFDE /* MainScreenViewModel.swift in Sources */,
 				BAC330462AFFE90E0011CFDE /* MainScreenViewModelInput.swift in Sources */,
@@ -221,6 +267,8 @@
 				BAC330412AFFE8730011CFDE /* MainScreenCoordinator.swift in Sources */,
 				BAC330242AFFE0A30011CFDE /* SceneDelegate.swift in Sources */,
 				BAC330362AFFE6680011CFDE /* MainViewController.swift in Sources */,
+				BAC330542B00117E0011CFDE /* FileReaderService.swift in Sources */,
+				BAC3304F2B000F5C0011CFDE /* Language.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
