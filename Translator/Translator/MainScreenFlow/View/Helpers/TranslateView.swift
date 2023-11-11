@@ -24,16 +24,28 @@ final class TranslateView: UIView {
         return $0
     }(UIView(frame: .zero))
     
+    private lazy var translatedLabel: UILabel = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.textColor = .white
+        $0.font = UIFont.systemFont(ofSize: 32)
+        $0.numberOfLines = 0
+        return $0
+    }(UILabel(frame: .zero))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .gray
         setupEntryTextView()
         setupDeviderView()
+        setupTranslatedLabel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func translatedText(_ text: String) {
+        translatedLabel.text = text
     }
 }
 
@@ -63,6 +75,16 @@ private extension TranslateView {
             deviderView.heightAnchor.constraint(equalToConstant: 4),
             deviderView.centerXAnchor.constraint(equalTo: centerXAnchor),
             deviderView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5)
+        ])
+    }
+    
+    func setupTranslatedLabel() {
+        addSubview(translatedLabel)
+        
+        NSLayoutConstraint.activate([
+            translatedLabel.topAnchor.constraint(equalTo: deviderView.bottomAnchor, constant: 16),
+            translatedLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
+            translatedLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6)
         ])
     }
 }

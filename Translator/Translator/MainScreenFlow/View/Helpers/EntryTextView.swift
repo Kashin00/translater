@@ -40,7 +40,9 @@ final class EntryTextView: UIView {
             inputTextView.selectedRange = NSRange(location: 0, length: 0)
         case .typing:
             inputTextView.textColor = .white
-            inputTextView.text = ""
+            if inputTextView.text == placeholderText {
+                inputTextView.text = ""
+            }
         }
     }
     
