@@ -13,10 +13,10 @@ protocol MainScreenViewModelDataFetcherInput: AnyObject {
 
 class MainScreenViewModelDataFetcher: MainScreenViewModelDataFetcherInput {
     
-    private var decoder: DataDecoderInput
+    private var decoder: DataDecoderServiceInput
     private var fileReader: FileReaderServiceInput
     
-    init(decoder: DataDecoderInput = DataDecoderService(),
+    init(decoder: DataDecoderServiceInput = DataDecoderService(),
          fileReader: FileReaderServiceInput = FileReaderService()) {
         self.decoder = decoder
         self.fileReader = fileReader
