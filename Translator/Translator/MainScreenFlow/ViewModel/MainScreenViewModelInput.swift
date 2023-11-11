@@ -8,5 +8,12 @@
 import Foundation
 
 protocol MainScreenViewModelInput: AnyObject {
+    // data
+    var languages: [Language]? { get }
+    
+    // actions
     func viewLoaded()
+    
+    // bindings
+    var bindLanguages: (([Language]) -> ())? { get set }
 }

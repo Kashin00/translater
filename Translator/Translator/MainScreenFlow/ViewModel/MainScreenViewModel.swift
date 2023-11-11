@@ -9,6 +9,10 @@ import Foundation
 
 class MainScreenViewModel: MainScreenViewModelInput {
     
+    var languages: [Language]?
+    
+    var bindLanguages: (([Language]) -> ())?
+    
     private var dataHandler: MainScreenViewModelDataHandlerInput
     
     init(dataHandler: MainScreenViewModelDataHandlerInput = MainScreenViewModelDataHandler()) {
@@ -21,8 +25,8 @@ class MainScreenViewModel: MainScreenViewModelInput {
     
     private func fetchLanguages() {
         do {
-            let languages = try dataHandler.getLanguages()
-            print(languages)
+            languages = try dataHandler.getLanguages()
+            bindLanguages?(languages ?? [])
         } catch {
             print(error)
         }

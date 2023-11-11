@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTranslateView()
-        
+        setupBindings()
         viewModel?.viewLoaded()
     }
 }
@@ -55,6 +55,19 @@ private extension MainViewController {
                 print($0)
                 self?.translateView.translatedText("TranslatedText")
             }
+        }
+    }
+}
+
+// MARK: Bindings
+private extension MainViewController {
+    func setupBindings() {
+        createLanguageBinding()
+    }
+    
+    func createLanguageBinding() {
+        viewModel?.bindLanguages = { [weak self] languages in
+            print(languages)
         }
     }
 }
