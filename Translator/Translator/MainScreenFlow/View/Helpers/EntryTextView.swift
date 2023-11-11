@@ -83,11 +83,14 @@ extension EntryTextView: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        typedTextHandler?(textView.text)
+        typedTextHandler?(textView.text == placeholderText ? "" : textView.text)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
+            if textView.text.trimmingCharacters(in: .whitespaces).isEmpty {
+                state = .placeholder
+            }
             textView.resignFirstResponder()
             return false
         }
