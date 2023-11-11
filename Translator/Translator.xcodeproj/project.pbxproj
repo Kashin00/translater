@@ -17,6 +17,8 @@
 		BAC330412AFFE8730011CFDE /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330402AFFE8730011CFDE /* MainScreenCoordinator.swift */; };
 		BAC330442AFFE9070011CFDE /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330432AFFE9070011CFDE /* MainScreenViewModel.swift */; };
 		BAC330462AFFE90E0011CFDE /* MainScreenViewModelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330452AFFE90E0011CFDE /* MainScreenViewModelInput.swift */; };
+		BAC330492AFFEBC10011CFDE /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330482AFFEBC10011CFDE /* TranslateView.swift */; };
+		BAC3304B2B00077E0011CFDE /* EntryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3304A2B00077E0011CFDE /* EntryTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		BAC330402AFFE8730011CFDE /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
 		BAC330432AFFE9070011CFDE /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		BAC330452AFFE90E0011CFDE /* MainScreenViewModelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelInput.swift; sourceTree = "<group>"; };
+		BAC330482AFFEBC10011CFDE /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
+		BAC3304A2B00077E0011CFDE /* EntryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 		BAC3303E2AFFE85E0011CFDE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BAC330472AFFEB960011CFDE /* Helpers */,
 				BAC330352AFFE6680011CFDE /* MainViewController.swift */,
 			);
 			path = View;
@@ -125,6 +130,15 @@
 				BAC330432AFFE9070011CFDE /* MainScreenViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BAC330472AFFEB960011CFDE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BAC330482AFFEBC10011CFDE /* TranslateView.swift */,
+				BAC3304A2B00077E0011CFDE /* EntryTextView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,10 +212,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAC330222AFFE0A30011CFDE /* AppDelegate.swift in Sources */,
+				BAC330492AFFEBC10011CFDE /* TranslateView.swift in Sources */,
 				BAC330442AFFE9070011CFDE /* MainScreenViewModel.swift in Sources */,
 				BAC330462AFFE90E0011CFDE /* MainScreenViewModelInput.swift in Sources */,
 				BAC3303B2AFFE7830011CFDE /* MainCoordinatinator.swift in Sources */,
 				BAC3303D2AFFE7A00011CFDE /* Coordinator.swift in Sources */,
+				BAC3304B2B00077E0011CFDE /* EntryTextView.swift in Sources */,
 				BAC330412AFFE8730011CFDE /* MainScreenCoordinator.swift in Sources */,
 				BAC330242AFFE0A30011CFDE /* SceneDelegate.swift in Sources */,
 				BAC330362AFFE6680011CFDE /* MainViewController.swift in Sources */,

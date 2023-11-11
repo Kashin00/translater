@@ -1,7 +1,7 @@
 1) Create UI
 2) Features
 	- Language changing
-	- History
+	- History + check in db for translation 
 	- Saved
 	- Text from voice 
 	- Text from camera
