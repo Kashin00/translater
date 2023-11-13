@@ -24,6 +24,11 @@ final class TranslateView: UIView {
         return $0
     }(UIView(frame: .zero))
     
+    private lazy var tranlatedTextScrollView: UIScrollView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIScrollView(frame: .zero))
+    
     private lazy var translatedLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textColor = .white
@@ -37,6 +42,7 @@ final class TranslateView: UIView {
         backgroundColor = .gray
         setupEntryTextView()
         setupDeviderView()
+        setupScrollView()
         setupTranslatedLabel()
     }
     
@@ -78,13 +84,25 @@ private extension TranslateView {
         ])
     }
     
+    
+    func setupScrollView() {
+        addSubview(tranlatedTextScrollView)
+        NSLayoutConstraint.activate([
+            tranlatedTextScrollView.topAnchor.constraint(equalTo: deviderView.bottomAnchor, constant: 16),
+            tranlatedTextScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
+            tranlatedTextScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6),
+            tranlatedTextScrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+    }
+    
     func setupTranslatedLabel() {
-        addSubview(translatedLabel)
+        tranlatedTextScrollView.addSubview(translatedLabel)
         
         NSLayoutConstraint.activate([
-            translatedLabel.topAnchor.constraint(equalTo: deviderView.bottomAnchor, constant: 16),
-            translatedLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
-            translatedLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6)
+            translatedLabel.topAnchor.constraint(equalTo: tranlatedTextScrollView.topAnchor),
+            translatedLabel.widthAnchor.constraint(equalTo: tranlatedTextScrollView.widthAnchor),
+            translatedLabel.bottomAnchor.constraint(equalTo: tranlatedTextScrollView.bottomAnchor),
         ])
     }
 }
