@@ -15,5 +15,5 @@ protocol MainScreenViewModelInput: AnyObject {
     func viewLoaded()
     
     // bindings
-    var bindLanguages: (([Language]) -> ())? { get set }
+    var bindLanguages: ((_ current: Language, _ expected: Language) -> ())? { get set }
 }

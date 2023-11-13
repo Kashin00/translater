@@ -11,7 +11,7 @@ class MainScreenViewModel: MainScreenViewModelInput {
     
     var languages: [Language]?
     
-    var bindLanguages: (([Language]) -> ())?
+    var bindLanguages: ((_ current: Language, _ expected: Language) -> ())?
     
     private var dataHandler: MainScreenViewModelDataHandlerInput
     
@@ -26,7 +26,10 @@ class MainScreenViewModel: MainScreenViewModelInput {
     private func fetchLanguages() {
         do {
             languages = try dataHandler.getLanguages()
-            bindLanguages?(languages ?? [])
+            if let currentLanguage = languages?.first(where: { $0.language == "en" }),
+               let expectedLanguage = languages?.first {
+                bindLanguages?(currentLanguage, expectedLanguage)
+            }
         } catch {
             print(error)
         }

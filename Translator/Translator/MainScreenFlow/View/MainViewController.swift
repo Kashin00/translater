@@ -18,6 +18,11 @@ class MainViewController: UIViewController {
         return $0
     }(TranslateView(frame: .zero))
     
+    private lazy var languageChangingView: LanguageChangingView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(LanguageChangingView(frame: .zero))
+    
     init(viewModel: MainScreenViewModelInput) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
@@ -30,6 +35,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTranslateView()
+        setupLanguageChangingView()
         setupBindings()
         viewModel?.viewLoaded()
     }
@@ -57,6 +63,17 @@ private extension MainViewController {
             }
         }
     }
+    
+    func setupLanguageChangingView() {
+        view.addSubview(languageChangingView)
+        
+        NSLayoutConstraint.activate([
+            languageChangingView.topAnchor.constraint(equalTo: translateView.bottomAnchor, constant: 16),
+            languageChangingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            languageChangingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            languageChangingView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
 }
 
 // MARK: Bindings
@@ -66,8 +83,8 @@ private extension MainViewController {
     }
     
     func createLanguageBinding() {
-        viewModel?.bindLanguages = { [weak self] languages in
-            print(languages)
+        viewModel?.bindLanguages = { [weak self] currentLanguage, expectedLanguage in
+            self?.languageChangingView.configute(with: currentLanguage, and: expectedLanguage)
         }
     }
 }
