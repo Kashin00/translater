@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol LanguageChangingViewDelegate: AnyObject {
+    func changeButtonTapped()
+}
+
 class LanguageChangingView: UIView {
+    
+    weak var delegate: LanguageChangingViewDelegate?
     
     private lazy var sourceLanguageView: LanguageRepresentationView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -19,9 +25,17 @@ class LanguageChangingView: UIView {
         return $0
     }(LanguageRepresentationView(frame: .zero))
     
+    private lazy var changeButton: UIButton = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setImage(UIImage(systemName: "repeat"), for: .normal)
+        $0.tintColor = .white
+        return $0
+    }(UIButton(frame: .zero))
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLanguagesView()
+        setupChangeButton()
     }
     
     required init?(coder: NSCoder) {
@@ -48,5 +62,23 @@ class LanguageChangingView: UIView {
             expectedLanguageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             expectedLanguageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
         ])
+    }
+    
+    private func setupChangeButton() {
+        addSubview(changeButton)
+        
+        changeButton.addTarget(self, action: #selector(changeButtonTapped), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            changeButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            changeButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            changeButton.heightAnchor.constraint(equalToConstant: 24),
+            changeButton.widthAnchor.constraint(equalToConstant: 24),
+        ])
+    }
+    
+    @objc private func changeButtonTapped() {
+        delegate?.changeButtonTapped()
+        changeButton.rotate()
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class LanguageRepresentationView: UIView {
     
-    private var language: Language?
+    private(set) var language: Language?
     
     private lazy var languageNameLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false

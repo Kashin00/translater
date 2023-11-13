@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     
     private lazy var languageChangingView: LanguageChangingView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.delegate = self
         return $0
     }(LanguageChangingView(frame: .zero))
     
@@ -86,5 +87,13 @@ private extension MainViewController {
         viewModel?.bindLanguages = { [weak self] currentLanguage, expectedLanguage in
             self?.languageChangingView.configute(with: currentLanguage, and: expectedLanguage)
         }
+    }
+}
+
+// MARK: LanguageChangingViewDelegate
+
+extension MainViewController: LanguageChangingViewDelegate {
+    func changeButtonTapped() {
+        viewModel?.needToChangeLanguage()
     }
 }

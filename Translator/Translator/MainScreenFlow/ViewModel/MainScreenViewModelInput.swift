@@ -13,6 +13,7 @@ protocol MainScreenViewModelInput: AnyObject {
     
     // actions
     func viewLoaded()
+    func needToChangeLanguage()
     
     // bindings
     var bindLanguages: ((_ current: Language, _ expected: Language) -> ())? { get set }

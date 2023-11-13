@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BA2A5D872B02216300A6D39D /* LanguageChangingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2A5D862B02216300A6D39D /* LanguageChangingView.swift */; };
 		BA2A5D892B02374000A6D39D /* LanguageRepresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2A5D882B02374000A6D39D /* LanguageRepresentationView.swift */; };
+		BA2A5D8C2B023D8800A6D39D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2A5D8B2B023D8800A6D39D /* UIView+Extensions.swift */; };
 		BAC330222AFFE0A30011CFDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330212AFFE0A30011CFDE /* AppDelegate.swift */; };
 		BAC330242AFFE0A30011CFDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330232AFFE0A30011CFDE /* SceneDelegate.swift */; };
 		BAC3302B2AFFE0A40011CFDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC3302A2AFFE0A40011CFDE /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		BA2A5D862B02216300A6D39D /* LanguageChangingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageChangingView.swift; sourceTree = "<group>"; };
 		BA2A5D882B02374000A6D39D /* LanguageRepresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageRepresentationView.swift; sourceTree = "<group>"; };
+		BA2A5D8B2B023D8800A6D39D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		BAC3301E2AFFE0A30011CFDE /* Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Translator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC330212AFFE0A30011CFDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAC330232AFFE0A30011CFDE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA2A5D8A2B023D7600A6D39D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA2A5D8B2B023D8800A6D39D /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BAC330152AFFE0A30011CFDE = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 		BAC3304C2B000F460011CFDE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				BA2A5D8A2B023D7600A6D39D /* Extensions */,
 				BAC330552B0012780011CFDE /* Errors */,
 				BAC330522B0011530011CFDE /* Services */,
 				BAC3304D2B000F4D0011CFDE /* Models */,
@@ -291,6 +302,7 @@
 				BAC3303B2AFFE7830011CFDE /* MainCoordinatinator.swift in Sources */,
 				BAC3303D2AFFE7A00011CFDE /* Coordinator.swift in Sources */,
 				BAC3304B2B00077E0011CFDE /* EntryTextView.swift in Sources */,
+				BA2A5D8C2B023D8800A6D39D /* UIView+Extensions.swift in Sources */,
 				BAC330412AFFE8730011CFDE /* MainScreenCoordinator.swift in Sources */,
 				BAC330242AFFE0A30011CFDE /* SceneDelegate.swift in Sources */,
 				BAC330362AFFE6680011CFDE /* MainViewController.swift in Sources */,
