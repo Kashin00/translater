@@ -7,7 +7,14 @@
 
 import UIKit
 
-class LanguageRepresentationView: UIView {
+protocol LanguageRepresentationViewDelegate: AnyObject {
+    func getAllLanguages() -> [Language]
+    func languageDidChanged(from language: Language?, to newLanguage: Language?)
+}
+
+class LanguageRepresentationView: UIControl {
+    
+    weak var delegate: LanguageRepresentationViewDelegate?
     
     private(set) var language: Language?
     
@@ -34,6 +41,25 @@ class LanguageRepresentationView: UIView {
     func configure(with language: Language) {
         self.language = language
         languageNameLabel.text = language.languageName
+    }
+    
+    override func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        
+        let languages = delegate?.getAllLanguages() ?? []
+        
+        let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { [weak self] _ in
+            guard let self else { return nil }
+            let actions = languages.compactMap { language in
+                UIAction(title: language.languageName,
+                         state: self.language == language ? .on : .off) { action in
+                    self.delegate?.languageDidChanged(from: self.language, to: language)
+                }
+            }
+            
+            let menu = UIMenu(children: actions)
+            return menu
+        })
+        return config
     }
     
     private func setupLabel() {

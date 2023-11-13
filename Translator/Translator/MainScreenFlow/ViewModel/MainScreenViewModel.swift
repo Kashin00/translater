@@ -30,23 +30,35 @@ class MainScreenViewModel: MainScreenViewModelInput {
         self.currentLanguage = expectedLanguage
         self.expectedLanguage = currentTempLanguage
         
-        if let currentLanguage = currentLanguage,
-           let expectedLanguage = expectedLanguage {
-            bindLanguages?(currentLanguage, expectedLanguage)
-        }
+        bindLanguagesIfAvailable()
     }
+    
+    func languageDidChanged(from language: Language?, to newLanguage: Language?) {
+        if language == currentLanguage {
+            currentLanguage = newLanguage
+        } else if language == expectedLanguage {
+            expectedLanguage = newLanguage
+        }
+        
+        bindLanguagesIfAvailable()    }
     
     private func fetchLanguages() {
         do {
             languages = try dataHandler.getLanguages()
-            if let currentLanguage = languages?.first(where: { $0.language == "en" }),
-               let expectedLanguage = languages?.first {
-                self.currentLanguage = currentLanguage
-                self.expectedLanguage = expectedLanguage
-                bindLanguages?(currentLanguage, expectedLanguage)
-            }
+            languages?.removeAll(where: { $0.languageName.isEmpty })
+            languages?.sort(by: { $0.languageName < $1.languageName })
+            
+            self.currentLanguage = languages?.first(where: { $0.language == "en" })
+            self.expectedLanguage = languages?.first
+            bindLanguagesIfAvailable()
         } catch {
             print(error)
+        }
+    }
+    
+    private func bindLanguagesIfAvailable() {
+        if let currentLanguage, let expectedLanguage {
+            bindLanguages?(currentLanguage, expectedLanguage)
         }
     }
 }

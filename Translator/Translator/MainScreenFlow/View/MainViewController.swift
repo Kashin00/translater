@@ -96,4 +96,12 @@ extension MainViewController: LanguageChangingViewDelegate {
     func changeButtonTapped() {
         viewModel?.needToChangeLanguage()
     }
+    
+    func getAllLanguages() -> [Language] {
+        return viewModel?.languages ?? []
+    }
+    
+    func languageDidChanged(from language: Language?, to newLanguage: Language?) {
+        viewModel?.languageDidChanged(from: language, to: newLanguage)
+    }
 }

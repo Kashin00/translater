@@ -15,7 +15,7 @@ struct AllLanguages: Codable {
     let languages: [Language]
 }
 
-struct Language: Codable {
+struct Language: Codable, Equatable {
     let language: String
     
     var languageName: String {

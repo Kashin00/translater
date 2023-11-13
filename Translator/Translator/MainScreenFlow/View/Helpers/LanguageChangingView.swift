@@ -9,6 +9,8 @@ import UIKit
 
 protocol LanguageChangingViewDelegate: AnyObject {
     func changeButtonTapped()
+    func getAllLanguages() -> [Language]
+    func languageDidChanged(from language: Language?, to newLanguage: Language?)
 }
 
 class LanguageChangingView: UIView {
@@ -17,11 +19,17 @@ class LanguageChangingView: UIView {
     
     private lazy var sourceLanguageView: LanguageRepresentationView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.isContextMenuInteractionEnabled = true
+        $0.showsMenuAsPrimaryAction = true
+        $0.delegate = self
         return $0
     }(LanguageRepresentationView(frame: .zero))
     
     private lazy var expectedLanguageView: LanguageRepresentationView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.isContextMenuInteractionEnabled = true
+        $0.showsMenuAsPrimaryAction = true
+        $0.delegate = self
         return $0
     }(LanguageRepresentationView(frame: .zero))
     
@@ -80,5 +88,15 @@ class LanguageChangingView: UIView {
     @objc private func changeButtonTapped() {
         delegate?.changeButtonTapped()
         changeButton.rotate()
+    }
+}
+
+extension LanguageChangingView: LanguageRepresentationViewDelegate {
+    func languageDidChanged(from language: Language?, to newLanguage: Language?) {
+        delegate?.languageDidChanged(from: language, to: newLanguage)
+    }
+    
+    func getAllLanguages() -> [Language] {
+        delegate?.getAllLanguages() ?? []
     }
 }
