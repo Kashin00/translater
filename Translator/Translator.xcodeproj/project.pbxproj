@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2A5D872B02216300A6D39D /* LanguageChangingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2A5D862B02216300A6D39D /* LanguageChangingView.swift */; };
+		BA2A5D892B02374000A6D39D /* LanguageRepresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2A5D882B02374000A6D39D /* LanguageRepresentationView.swift */; };
 		BAC330222AFFE0A30011CFDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330212AFFE0A30011CFDE /* AppDelegate.swift */; };
 		BAC330242AFFE0A30011CFDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330232AFFE0A30011CFDE /* SceneDelegate.swift */; };
 		BAC3302B2AFFE0A40011CFDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC3302A2AFFE0A40011CFDE /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA2A5D862B02216300A6D39D /* LanguageChangingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageChangingView.swift; sourceTree = "<group>"; };
+		BA2A5D882B02374000A6D39D /* LanguageRepresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageRepresentationView.swift; sourceTree = "<group>"; };
 		BAC3301E2AFFE0A30011CFDE /* Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Translator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC330212AFFE0A30011CFDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAC330232AFFE0A30011CFDE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 			children = (
 				BAC330482AFFEBC10011CFDE /* TranslateView.swift */,
 				BAC3304A2B00077E0011CFDE /* EntryTextView.swift */,
+				BA2A5D862B02216300A6D39D /* LanguageChangingView.swift */,
+				BA2A5D882B02374000A6D39D /* LanguageRepresentationView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -279,7 +285,9 @@
 				BAC3305A2B0019970011CFDE /* MainScreenViewModelDataFetcher.swift in Sources */,
 				BAC3305E2B0019E20011CFDE /* DataDecoderService.swift in Sources */,
 				BAC330442AFFE9070011CFDE /* MainScreenViewModel.swift in Sources */,
+				BA2A5D872B02216300A6D39D /* LanguageChangingView.swift in Sources */,
 				BAC330462AFFE90E0011CFDE /* MainScreenViewModelInput.swift in Sources */,
+				BA2A5D892B02374000A6D39D /* LanguageRepresentationView.swift in Sources */,
 				BAC3303B2AFFE7830011CFDE /* MainCoordinatinator.swift in Sources */,
 				BAC3303D2AFFE7A00011CFDE /* Coordinator.swift in Sources */,
 				BAC3304B2B00077E0011CFDE /* EntryTextView.swift in Sources */,

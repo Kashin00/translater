@@ -17,5 +17,11 @@ struct AllLanguages: Codable {
 
 struct Language: Codable {
     let language: String
+    
+    var languageName: String {
+        let identifier = (Locale.current as NSLocale).displayName(forKey: .identifier, value: language)
+        
+        return identifier ?? ""
+    }
 }
 
