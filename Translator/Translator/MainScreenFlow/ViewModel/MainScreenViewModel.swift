@@ -41,6 +41,26 @@ class MainScreenViewModel: MainScreenViewModelInput {
         }
         
         bindLanguagesIfAvailable()
+    }
+    
+    func translate(text: String?) {
+        guard let text,
+              let inputCode = currentLanguage?.language,
+              let expectedCode = expectedLanguage?.language else { return }
+        
+        let translatedModel = TranslationModel(inputLanguageCode: inputCode,
+                                               expectedLanguageCode: expectedCode,
+                                               text: text)
+        
+        Task {
+            do {
+                let translatedText = try await dataHandler.transtaledText(for: translatedModel)
+                print(translatedText)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
     
     private func fetchLanguages() {
         do {

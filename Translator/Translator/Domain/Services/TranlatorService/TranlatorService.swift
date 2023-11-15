@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TranslatorServiceInput: AnyObject {
-    func translate(with model: TranslationModel) -> String?
+    func translate(with model: TranslationModel) async throws -> String?
 }
 
 class TranslatorService: TranslatorServiceInput {
@@ -20,7 +20,7 @@ class TranslatorService: TranslatorServiceInput {
         dataBaseHandler.setNext(handler: networkHandler)
     }
     
-    func translate(with model: TranslationModel) -> String? {
-        return dataBaseHandler.handle(request: model)
+    func translate(with model: TranslationModel) async throws -> String? {
+        try await dataBaseHandler.handle(request: model)
     }
 }

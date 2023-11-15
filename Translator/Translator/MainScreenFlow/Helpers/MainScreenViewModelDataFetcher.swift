@@ -9,7 +9,7 @@ import Foundation
 
 protocol MainScreenViewModelDataFetcherInput: AnyObject {
     func loadLanguages() throws -> [Language]
-    func transtaledText(for model: TranslationModel) -> String?
+    func transtaledText(for model: TranslationModel) async throws -> String?
 }
 
 class MainScreenViewModelDataFetcher: MainScreenViewModelDataFetcherInput {
@@ -32,7 +32,7 @@ class MainScreenViewModelDataFetcher: MainScreenViewModelDataFetcherInput {
         return response.data.languages
     }
     
-    func transtaledText(for model: TranslationModel) -> String? {
-        translatorService.translate(with: model)
+    func transtaledText(for model: TranslationModel) async throws -> String? {
+        try await translatorService.translate(with: model)
     }
 }

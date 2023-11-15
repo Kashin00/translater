@@ -15,6 +15,7 @@ protocol MainScreenViewModelInput: AnyObject {
     func viewLoaded()
     func needToChangeLanguage()
     func languageDidChanged(from language: Language?, to newLanguage: Language?)
+    func translate(text: String?)
     
     // bindings
     var bindLanguages: ((_ current: Language, _ expected: Language) -> ())? { get set }

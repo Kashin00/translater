@@ -21,7 +21,7 @@ extension TranslationHandler {
         return handler
     }
     
-    func handle(request: TranslationModel) -> String? {
-        return nextHandler?.handle(request: request)
+    func handle(request: TranslationModel) async throws -> String? {
+        try await nextHandler?.handle(request: request)
     }
 }

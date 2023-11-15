@@ -54,14 +54,8 @@ private extension MainViewController {
             translateView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7)
         ])
         
-        translateView.typedTextHandler = { [weak self] in 
-            if $0.isEmpty {
-                print($0)
-                self?.translateView.translatedText("")
-            } else {
-                print($0)
-                self?.translateView.translatedText("TranslatedText")
-            }
+        translateView.typedTextHandler = { [weak self] in
+            self?.viewModel?.translate(text: $0)
         }
     }
     
