@@ -16,16 +16,16 @@ class TranslationDataBaseHandler: TranslationHandler {
     
     var nextHandler: TranslationHandler?
     
-    func handle(request: TranslationModel) -> String? {
-        if let savedText = isInDataBase(request) {
+    func handle(request: TranslationModel) async throws -> String? {
+        if let savedText = try isInDataBase(request) {
             return savedText
         } else {
-            return nextHandler?.handle(request: request)
+            return try await nextHandler?.handle(request: request)
         }
     }
     
-    private func isInDataBase(_ model: TranslationModel) -> String? {
-        dataBase
+    private func isInDataBase(_ model: TranslationModel) throws -> String? {
+        try dataBase
             .fetchObjectsOf(TranslatorModelEntity.self, predicate: nil)
             .first(where: {
                 $0.inputCode == model.inputLanguageCode &&

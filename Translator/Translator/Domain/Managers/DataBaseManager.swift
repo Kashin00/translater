@@ -23,7 +23,8 @@ protocol DataBaseManagerInput: AnyObject {
     @discardableResult
     func addEntities<E: ManagedObjectConvertible>(_ entities: [E]) -> [E.ManagedObjectType]
     
-    func fetchObjectsOf<T: PersistenceEntityType>(_ type: T.Type, predicate: NSPredicate?) -> [T]
+    func fetchObjectsOf<T: PersistenceEntityType>(_ type: T.Type,
+                                                  predicate: NSPredicate?) throws ->  [T]
     
     func removeObjects<T: PersistenceEntityType>(_ objects: [T])
     func saveContext()
@@ -68,7 +69,7 @@ class DataBaseManager: DataBaseManagerInput {
         return objects
     }
     
-    func fetchObjectsOf<T>(_ type: T.Type, predicate: NSPredicate?) -> [T] where T: PersistenceEntityType {
+    func fetchObjectsOf<T>(_ type: T.Type, predicate: NSPredicate?) throws -> [T] where T: PersistenceEntityType {
         let fetchRequest = NSFetchRequest<T>(entityName: T.entityName)
         
         if let predicate = predicate {
@@ -76,13 +77,7 @@ class DataBaseManager: DataBaseManagerInput {
         }
         
         var objects: [T] = []
-        do {
-            objects = try context.fetch(fetchRequest)
-        } catch {
-            //        postErrorNotification(
-            //          .persistentStorageError(reason: .fetchFailed(message: error.localizedDescription))
-            //        )
-        }
+        objects = try context.fetch(fetchRequest)
         return objects
     }
     

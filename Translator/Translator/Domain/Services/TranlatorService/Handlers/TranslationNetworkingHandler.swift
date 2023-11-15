@@ -10,11 +10,11 @@ import Foundation
 class TranslationNetworkingHandler: TranslationHandler {
     var nextHandler: TranslationHandler?
     
-    func handle(request: TranslationModel) -> String? {
+    func handle(request: TranslationModel) async throws -> String? {
 //        if fetched {
             
 //        } else {
-            return nextHandler?.handle(request: request)
+        return try await nextHandler?.handle(request: request)
 //        }
     }
 }
