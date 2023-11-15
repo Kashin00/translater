@@ -31,6 +31,9 @@
 		BAC3305E2B0019E20011CFDE /* DataDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3305D2B0019E20011CFDE /* DataDecoderService.swift */; };
 		BAD47CA62B04CF7300790D3E /* TranlatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CA52B04CF7300790D3E /* TranlatorService.swift */; };
 		BAD47CA92B04D49700790D3E /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CA82B04D49700790D3E /* DataBaseManager.swift */; };
+		BAD47CAF2B04DA2600790D3E /* TranslatorDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CAD2B04DA2600790D3E /* TranslatorDB.xcdatamodeld */; };
+		BAD47CB42B04DB9800790D3E /* TranslatorModelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CB32B04DB9800790D3E /* TranslatorModelEntity.swift */; };
+		BAD47CB62B04DE8500790D3E /* TranslationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CB52B04DE8500790D3E /* TranslationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		BAC3305D2B0019E20011CFDE /* DataDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoderService.swift; sourceTree = "<group>"; };
 		BAD47CA52B04CF7300790D3E /* TranlatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranlatorService.swift; sourceTree = "<group>"; };
 		BAD47CA82B04D49700790D3E /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		BAD47CAE2B04DA2600790D3E /* TranslatorDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TranslatorDB.xcdatamodel; sourceTree = "<group>"; };
+		BAD47CB32B04DB9800790D3E /* TranslatorModelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorModelEntity.swift; sourceTree = "<group>"; };
+		BAD47CB52B04DE8500790D3E /* TranslationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 		BAC330202AFFE0A30011CFDE /* Translator */ = {
 			isa = PBXGroup;
 			children = (
+				BAD47CB02B04DB6E00790D3E /* Data */,
 				BAC3304C2B000F460011CFDE /* Domain */,
 				BAC330382AFFE74C0011CFDE /* MainCoordinatinator */,
 				BAC330372AFFE7330011CFDE /* Resources */,
@@ -194,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				BAC3304E2B000F5C0011CFDE /* Language.swift */,
+				BAD47CB52B04DE8500790D3E /* TranslationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,6 +239,31 @@
 				BAD47CA82B04D49700790D3E /* DataBaseManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		BAD47CB02B04DB6E00790D3E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BAD47CB12B04DB7900790D3E /* DataBase */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BAD47CB12B04DB7900790D3E /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				BAD47CAD2B04DA2600790D3E /* TranslatorDB.xcdatamodeld */,
+				BAD47CB22B04DB8200790D3E /* DataBaseModels */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		BAD47CB22B04DB8200790D3E /* DataBaseModels */ = {
+			isa = PBXGroup;
+			children = (
+				BAD47CB32B04DB9800790D3E /* TranslatorModelEntity.swift */,
+			);
+			path = DataBaseModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +344,7 @@
 				BAD47CA92B04D49700790D3E /* DataBaseManager.swift in Sources */,
 				BAC3305E2B0019E20011CFDE /* DataDecoderService.swift in Sources */,
 				BAD47CA62B04CF7300790D3E /* TranlatorService.swift in Sources */,
+				BAD47CB42B04DB9800790D3E /* TranslatorModelEntity.swift in Sources */,
 				BAC330442AFFE9070011CFDE /* MainScreenViewModel.swift in Sources */,
 				BA2A5D872B02216300A6D39D /* LanguageChangingView.swift in Sources */,
 				BAC330462AFFE90E0011CFDE /* MainScreenViewModelInput.swift in Sources */,
@@ -320,11 +354,13 @@
 				BAC3304B2B00077E0011CFDE /* EntryTextView.swift in Sources */,
 				BA2A5D8C2B023D8800A6D39D /* UIView+Extensions.swift in Sources */,
 				BAC330412AFFE8730011CFDE /* MainScreenCoordinator.swift in Sources */,
+				BAD47CB62B04DE8500790D3E /* TranslationModel.swift in Sources */,
 				BAC330242AFFE0A30011CFDE /* SceneDelegate.swift in Sources */,
 				BAC330362AFFE6680011CFDE /* MainViewController.swift in Sources */,
 				BAC3305C2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift in Sources */,
 				BAC330542B00117E0011CFDE /* FileReaderService.swift in Sources */,
 				BAC3304F2B000F5C0011CFDE /* Language.swift in Sources */,
+				BAD47CAF2B04DA2600790D3E /* TranslatorDB.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +574,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BAD47CAD2B04DA2600790D3E /* TranslatorDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BAD47CAE2B04DA2600790D3E /* TranslatorDB.xcdatamodel */,
+			);
+			currentVersion = BAD47CAE2B04DA2600790D3E /* TranslatorDB.xcdatamodel */;
+			path = TranslatorDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BAC330162AFFE0A30011CFDE /* Project object */;
 }

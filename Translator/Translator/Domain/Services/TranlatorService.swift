@@ -7,12 +7,6 @@
 
 import Foundation
 
-struct TranslationModel {
-    let inputLanguageCode: String
-    let expectedLanguageCode: String
-    let text: String
-}
-
 protocol TranslationHandler: AnyObject {
     @discardableResult
       func setNext(handler: TranslationHandler) -> TranslationHandler
@@ -58,11 +52,11 @@ class TranlatorService: TranlatorServiceInput {
     
     init() {
         dataBaseManager.setNext(handler: networkManager)
-    
     }
     
     func translate(with model: TranslationModel) {
         let result = dataBaseManager.handle(request: model)
+
             // save result to bd
         // return return to screen
     }

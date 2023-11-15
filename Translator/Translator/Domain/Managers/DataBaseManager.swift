@@ -26,9 +26,27 @@ protocol DataBaseManagerInput: AnyObject {
     func fetchObjectsOf<T: PersistenceEntityType>(_ type: T.Type, predicate: NSPredicate?) -> [T]
     
     func removeObjects<T: PersistenceEntityType>(_ objects: [T])
+    func saveContext()
 }
 
 class DataBaseManager: TranslationHandler, DataBaseManagerInput {
+    
+    private lazy var persistentContainer: NSPersistentContainer = {
+      let container = NSPersistentContainer(name: "TranslatorDB")
+      container.loadPersistentStores(completionHandler: { (_, error) in
+        if let error = error {
+//          let internalError =
+//            InternalError.persistentStorageError(reason: .failedToInitCoreDataStack(message: error.localizedDescription))
+//          postErrorNotification(internalError)
+        } else {
+          container.viewContext.mergePolicy = NSOverwriteMergePolicy
+  //        container.viewContext.concurrencyType = .mainQueueConcurrencyType
+        }
+      })
+      return container
+    }()
+    
+    
     var nextHandler: TranslationHandler?
     
     func handle(request: TranslationModel) -> String? {
@@ -41,11 +59,9 @@ class DataBaseManager: TranslationHandler, DataBaseManagerInput {
     
     
     
-    private var context: NSManagedObjectContext!
-    
-    //    private static var managedObjectContext: NSManagedObjectContext {
-    //        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    //    }
+    private var context: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
     
     @discardableResult
     func addEntities<E: ManagedObjectConvertible>(_ entities: [E]) -> [E.ManagedObjectType] {
@@ -87,5 +103,13 @@ class DataBaseManager: TranslationHandler, DataBaseManagerInput {
       objects.forEach { (entity) in
         context.delete(entity)
       }
+    }
+    
+    func saveContext() {
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save")
+        }
     }
 }
