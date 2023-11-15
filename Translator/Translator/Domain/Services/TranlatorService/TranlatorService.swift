@@ -14,10 +14,10 @@ protocol TranslatorServiceInput: AnyObject {
 class TranslatorService: TranslatorServiceInput {
     
     let dataBaseHandler: TranslationHandler = TranslationDataBaseHandler()
-    let networkHandler: TranslationHandler  = TranslationNetworkingHandler()
+    let fetchingHandler: TranslationHandler  = TranslationFetchingHandler()
     
     init() {
-        dataBaseHandler.setNext(handler: networkHandler)
+        dataBaseHandler.setNext(handler: fetchingHandler)
     }
     
     func translate(with model: TranslationModel) async throws -> String? {

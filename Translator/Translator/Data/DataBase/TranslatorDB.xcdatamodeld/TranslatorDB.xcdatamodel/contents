@@ -2,7 +2,8 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22G313" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="TranslatorModelEntity" representedClassName=".TranslatorModelEntity" syncable="YES" codeGenerationType="category">
         <attribute name="expectedCode" optional="YES" attributeType="String"/>
+        <attribute name="expectedText" optional="YES" attributeType="String"/>
         <attribute name="inputCode" optional="YES" attributeType="String"/>
-        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="inputText" optional="YES" attributeType="String"/>
     </entity>
 </model>

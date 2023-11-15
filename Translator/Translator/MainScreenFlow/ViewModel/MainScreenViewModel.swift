@@ -50,7 +50,8 @@ class MainScreenViewModel: MainScreenViewModelInput {
         
         let translatedModel = TranslationModel(inputLanguageCode: inputCode,
                                                expectedLanguageCode: expectedCode,
-                                               text: text)
+                                               inputText: text,
+                                               expectedText: "")
         
         Task {
             do {

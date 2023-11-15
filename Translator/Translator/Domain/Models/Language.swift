@@ -24,4 +24,3 @@ struct Language: Codable, Equatable {
         return identifier ?? ""
     }
 }
-

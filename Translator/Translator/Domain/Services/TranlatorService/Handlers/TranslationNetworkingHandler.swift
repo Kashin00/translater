@@ -7,27 +7,32 @@
 
 import Foundation
 
-class MockNetworkManager {
-    
-    func fetchData(for text: String) async throws -> String? {
-        if text == "1" {
-            return "Success"
-        } else {
-            throw FileError.fileNotExisted
-        }
-    }
-}
-
-class TranslationNetworkingHandler: TranslationHandler {
+class TranslationFetchingHandler: TranslationHandler {
     
     var nextHandler: TranslationHandler?
+
+    private var networkManager: NetworkManagerInput
+    private var dataBaseManager: DataBaseManagerInput
+    
+    init(networkManager: NetworkManagerInput = NetworkManager(),
+         dataBaseManager: DataBaseManagerInput = DataBaseManager()) {
+        self.networkManager = networkManager
+        self.dataBaseManager = dataBaseManager
+    }
     
     func handle(request: TranslationModel) async throws -> String? {
-        let a = try await MockNetworkManager().fetchData(for: request.text)
-        if a != nil {
-            return a
-        } else {
-        return try await nextHandler?.handle(request: request)
+        let endPoint = RequestItem.translate(request)
+        let transleResponse: TranslateResponse = try await networkManager.send(endPoint.request)
+        var translatedText = ""
+        transleResponse.data.translations.forEach {
+            translatedText += $0.translatedText
         }
+        
+        var model = request
+        model.expectedText = translatedText
+        dataBaseManager.addEntities([model])
+        dataBaseManager.saveContext()
+        
+        return translatedText
     }
 }

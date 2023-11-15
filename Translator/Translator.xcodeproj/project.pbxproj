@@ -38,6 +38,9 @@
 		BAD47CBC2B04E90700790D3E /* TranslationNetworkingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CBB2B04E90700790D3E /* TranslationNetworkingHandler.swift */; };
 		BAD47CBE2B04E91F00790D3E /* TranslationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CBD2B04E91F00790D3E /* TranslationHandler.swift */; };
 		BAD47CC02B04E93B00790D3E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CBF2B04E93B00790D3E /* NetworkManager.swift */; };
+		BAD47CC22B0518B300790D3E /* TranslateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CC12B0518B300790D3E /* TranslateResponse.swift */; };
+		BAD47CC42B05190100790D3E /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CC32B05190100790D3E /* EndPointType.swift */; };
+		BAD47CC62B05191000790D3E /* RequestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CC52B05191000790D3E /* RequestItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,9 @@
 		BAD47CBB2B04E90700790D3E /* TranslationNetworkingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNetworkingHandler.swift; sourceTree = "<group>"; };
 		BAD47CBD2B04E91F00790D3E /* TranslationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationHandler.swift; sourceTree = "<group>"; };
 		BAD47CBF2B04E93B00790D3E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BAD47CC12B0518B300790D3E /* TranslateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateResponse.swift; sourceTree = "<group>"; };
+		BAD47CC32B05190100790D3E /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		BAD47CC52B05191000790D3E /* RequestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +216,9 @@
 			children = (
 				BAC3304E2B000F5C0011CFDE /* Language.swift */,
 				BAD47CB52B04DE8500790D3E /* TranslationModel.swift */,
+				BAD47CC12B0518B300790D3E /* TranslateResponse.swift */,
+				BAD47CC32B05190100790D3E /* EndPointType.swift */,
+				BAD47CC52B05191000790D3E /* RequestItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -367,11 +376,14 @@
 			files = (
 				BAC330222AFFE0A30011CFDE /* AppDelegate.swift in Sources */,
 				BAC330572B0012840011CFDE /* FileError.swift in Sources */,
+				BAD47CC22B0518B300790D3E /* TranslateResponse.swift in Sources */,
 				BAD47CBC2B04E90700790D3E /* TranslationNetworkingHandler.swift in Sources */,
 				BAC330492AFFEBC10011CFDE /* TranslateView.swift in Sources */,
 				BAC3305A2B0019970011CFDE /* MainScreenViewModelDataFetcher.swift in Sources */,
 				BAD47CA92B04D49700790D3E /* DataBaseManager.swift in Sources */,
+				BAD47CC62B05191000790D3E /* RequestItem.swift in Sources */,
 				BAC3305E2B0019E20011CFDE /* DataDecoderService.swift in Sources */,
+				BAD47CC42B05190100790D3E /* EndPointType.swift in Sources */,
 				BAD47CA62B04CF7300790D3E /* TranlatorService.swift in Sources */,
 				BAD47CB42B04DB9800790D3E /* TranslatorModelEntity.swift in Sources */,
 				BAC330442AFFE9070011CFDE /* MainScreenViewModel.swift in Sources */,

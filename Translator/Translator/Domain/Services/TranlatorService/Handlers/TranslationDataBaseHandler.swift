@@ -8,13 +8,13 @@
 import Foundation
 
 class TranslationDataBaseHandler: TranslationHandler {
+    
+    var nextHandler: TranslationHandler?
     private let dataBase: DataBaseManagerInput
     
     init(dataBase: DataBaseManagerInput = DataBaseManager()) {
         self.dataBase = dataBase
     }
-    
-    var nextHandler: TranslationHandler?
     
     func handle(request: TranslationModel) async throws -> String? {
         if let savedText = try isInDataBase(request) {
@@ -30,7 +30,7 @@ class TranslationDataBaseHandler: TranslationHandler {
             .first(where: {
                 $0.inputCode == model.inputLanguageCode &&
                 $0.expectedCode == model.expectedLanguageCode &&
-                $0.text == model.text
-            })?.text
+                $0.inputText == model.inputText
+            })?.expectedText
     }
 }
