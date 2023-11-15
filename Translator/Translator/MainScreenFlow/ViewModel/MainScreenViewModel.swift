@@ -40,7 +40,7 @@ class MainScreenViewModel: MainScreenViewModelInput {
             expectedLanguage = newLanguage
         }
         
-        bindLanguagesIfAvailable()    }
+        bindLanguagesIfAvailable()
     
     private func fetchLanguages() {
         do {

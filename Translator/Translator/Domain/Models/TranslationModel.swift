@@ -21,13 +21,13 @@ struct TranslationModel: ManagedObjectConvertible {
     
     init(dbEntity: TranslatorModelEntity) {
         inputLanguageCode = dbEntity.inputCode ?? ""
-        expectedLanguageCode = dbEntity.expectedCoed ?? ""
+        expectedLanguageCode = dbEntity.expectedCode ?? ""
         text = dbEntity.text ?? ""
     }
       
     func copyPropertiesTo(_ object: TranslatorModelEntity) {
         object.inputCode = inputLanguageCode
-        object.expectedCoed = expectedLanguageCode
+        object.expectedCode = expectedLanguageCode
         object.text = text
     }
 }

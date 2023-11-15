@@ -9,13 +9,13 @@ import CoreData
 import UIKit
 
 protocol ManagedObjectConvertible {
-  associatedtype ManagedObjectType: PersistenceEntityType
-  func copyPropertiesTo(_ object: ManagedObjectType)
-  init(dbEntity: ManagedObjectType)
+    associatedtype ManagedObjectType: PersistenceEntityType
+    func copyPropertiesTo(_ object: ManagedObjectType)
+    init(dbEntity: ManagedObjectType)
 }
 
 protocol PersistenceEntityType: NSManagedObject {
-  static var entityName: String { get }
+    static var entityName: String { get }
 }
 
 protocol DataBaseManagerInput: AnyObject {
@@ -29,35 +29,22 @@ protocol DataBaseManagerInput: AnyObject {
     func saveContext()
 }
 
-class DataBaseManager: TranslationHandler, DataBaseManagerInput {
+class DataBaseManager: DataBaseManagerInput {
     
     private lazy var persistentContainer: NSPersistentContainer = {
-      let container = NSPersistentContainer(name: "TranslatorDB")
-      container.loadPersistentStores(completionHandler: { (_, error) in
-        if let error = error {
-//          let internalError =
-//            InternalError.persistentStorageError(reason: .failedToInitCoreDataStack(message: error.localizedDescription))
-//          postErrorNotification(internalError)
-        } else {
-          container.viewContext.mergePolicy = NSOverwriteMergePolicy
-  //        container.viewContext.concurrencyType = .mainQueueConcurrencyType
-        }
-      })
-      return container
+        let container = NSPersistentContainer(name: "TranslatorDB")
+        container.loadPersistentStores(completionHandler: { (_, error) in
+            if let error = error {
+                //          let internalError =
+                //            InternalError.persistentStorageError(reason: .failedToInitCoreDataStack(message: error.localizedDescription))
+                //          postErrorNotification(internalError)
+            } else {
+                container.viewContext.mergePolicy = NSOverwriteMergePolicy
+                //        container.viewContext.concurrencyType = .mainQueueConcurrencyType
+            }
+        })
+        return container
     }()
-    
-    
-    var nextHandler: TranslationHandler?
-    
-    func handle(request: TranslationModel) -> String? {
-        //        if inBD {
-        
-        //        } else {
-        return nextHandler?.handle(request: request)
-        //        }
-    }
-    
-    
     
     private var context: NSManagedObjectContext {
         return persistentContainer.viewContext
@@ -80,29 +67,29 @@ class DataBaseManager: TranslationHandler, DataBaseManagerInput {
         print("ONJECTS: ", objects.count)
         return objects
     }
-
+    
     func fetchObjectsOf<T>(_ type: T.Type, predicate: NSPredicate?) -> [T] where T: PersistenceEntityType {
-      let fetchRequest = NSFetchRequest<T>(entityName: T.entityName)
-      
-      if let predicate = predicate {
-        fetchRequest.predicate = predicate
-      }
-      
-      var objects: [T] = []
-      do {
-        objects = try context.fetch(fetchRequest)
-      } catch {
-//        postErrorNotification(
-//          .persistentStorageError(reason: .fetchFailed(message: error.localizedDescription))
-//        )
-      }
-      return objects
+        let fetchRequest = NSFetchRequest<T>(entityName: T.entityName)
+        
+        if let predicate = predicate {
+            fetchRequest.predicate = predicate
+        }
+        
+        var objects: [T] = []
+        do {
+            objects = try context.fetch(fetchRequest)
+        } catch {
+            //        postErrorNotification(
+            //          .persistentStorageError(reason: .fetchFailed(message: error.localizedDescription))
+            //        )
+        }
+        return objects
     }
     
     func removeObjects<T>(_ objects: [T]) where T: PersistenceEntityType {
-      objects.forEach { (entity) in
-        context.delete(entity)
-      }
+        objects.forEach { (entity) in
+            context.delete(entity)
+        }
     }
     
     func saveContext() {

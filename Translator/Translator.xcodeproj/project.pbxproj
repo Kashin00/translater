@@ -34,6 +34,10 @@
 		BAD47CAF2B04DA2600790D3E /* TranslatorDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CAD2B04DA2600790D3E /* TranslatorDB.xcdatamodeld */; };
 		BAD47CB42B04DB9800790D3E /* TranslatorModelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CB32B04DB9800790D3E /* TranslatorModelEntity.swift */; };
 		BAD47CB62B04DE8500790D3E /* TranslationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CB52B04DE8500790D3E /* TranslationModel.swift */; };
+		BAD47CBA2B04E8F500790D3E /* TranslationDataBaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CB92B04E8F500790D3E /* TranslationDataBaseHandler.swift */; };
+		BAD47CBC2B04E90700790D3E /* TranslationNetworkingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CBB2B04E90700790D3E /* TranslationNetworkingHandler.swift */; };
+		BAD47CBE2B04E91F00790D3E /* TranslationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CBD2B04E91F00790D3E /* TranslationHandler.swift */; };
+		BAD47CC02B04E93B00790D3E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CBF2B04E93B00790D3E /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +70,10 @@
 		BAD47CAE2B04DA2600790D3E /* TranslatorDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TranslatorDB.xcdatamodel; sourceTree = "<group>"; };
 		BAD47CB32B04DB9800790D3E /* TranslatorModelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorModelEntity.swift; sourceTree = "<group>"; };
 		BAD47CB52B04DE8500790D3E /* TranslationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModel.swift; sourceTree = "<group>"; };
+		BAD47CB92B04E8F500790D3E /* TranslationDataBaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationDataBaseHandler.swift; sourceTree = "<group>"; };
+		BAD47CBB2B04E90700790D3E /* TranslationNetworkingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNetworkingHandler.swift; sourceTree = "<group>"; };
+		BAD47CBD2B04E91F00790D3E /* TranslationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationHandler.swift; sourceTree = "<group>"; };
+		BAD47CBF2B04E93B00790D3E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +219,7 @@
 			children = (
 				BAC330532B00117E0011CFDE /* FileReaderService.swift */,
 				BAC3305D2B0019E20011CFDE /* DataDecoderService.swift */,
-				BAD47CA52B04CF7300790D3E /* TranlatorService.swift */,
+				BAD47CB72B04E8DB00790D3E /* TranlatorService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				BAD47CA82B04D49700790D3E /* DataBaseManager.swift */,
+				BAD47CBF2B04E93B00790D3E /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -264,6 +273,25 @@
 				BAD47CB32B04DB9800790D3E /* TranslatorModelEntity.swift */,
 			);
 			path = DataBaseModels;
+			sourceTree = "<group>";
+		};
+		BAD47CB72B04E8DB00790D3E /* TranlatorService */ = {
+			isa = PBXGroup;
+			children = (
+				BAD47CB82B04E8E600790D3E /* Handlers */,
+				BAD47CA52B04CF7300790D3E /* TranlatorService.swift */,
+			);
+			path = TranlatorService;
+			sourceTree = "<group>";
+		};
+		BAD47CB82B04E8E600790D3E /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				BAD47CBD2B04E91F00790D3E /* TranslationHandler.swift */,
+				BAD47CB92B04E8F500790D3E /* TranslationDataBaseHandler.swift */,
+				BAD47CBB2B04E90700790D3E /* TranslationNetworkingHandler.swift */,
+			);
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +367,7 @@
 			files = (
 				BAC330222AFFE0A30011CFDE /* AppDelegate.swift in Sources */,
 				BAC330572B0012840011CFDE /* FileError.swift in Sources */,
+				BAD47CBC2B04E90700790D3E /* TranslationNetworkingHandler.swift in Sources */,
 				BAC330492AFFEBC10011CFDE /* TranslateView.swift in Sources */,
 				BAC3305A2B0019970011CFDE /* MainScreenViewModelDataFetcher.swift in Sources */,
 				BAD47CA92B04D49700790D3E /* DataBaseManager.swift in Sources */,
@@ -348,6 +377,7 @@
 				BAC330442AFFE9070011CFDE /* MainScreenViewModel.swift in Sources */,
 				BA2A5D872B02216300A6D39D /* LanguageChangingView.swift in Sources */,
 				BAC330462AFFE90E0011CFDE /* MainScreenViewModelInput.swift in Sources */,
+				BAD47CBA2B04E8F500790D3E /* TranslationDataBaseHandler.swift in Sources */,
 				BA2A5D892B02374000A6D39D /* LanguageRepresentationView.swift in Sources */,
 				BAC3303B2AFFE7830011CFDE /* MainCoordinatinator.swift in Sources */,
 				BAC3303D2AFFE7A00011CFDE /* Coordinator.swift in Sources */,
@@ -357,7 +387,9 @@
 				BAD47CB62B04DE8500790D3E /* TranslationModel.swift in Sources */,
 				BAC330242AFFE0A30011CFDE /* SceneDelegate.swift in Sources */,
 				BAC330362AFFE6680011CFDE /* MainViewController.swift in Sources */,
+				BAD47CBE2B04E91F00790D3E /* TranslationHandler.swift in Sources */,
 				BAC3305C2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift in Sources */,
+				BAD47CC02B04E93B00790D3E /* NetworkManager.swift in Sources */,
 				BAC330542B00117E0011CFDE /* FileReaderService.swift in Sources */,
 				BAC3304F2B000F5C0011CFDE /* Language.swift in Sources */,
 				BAD47CAF2B04DA2600790D3E /* TranslatorDB.xcdatamodeld in Sources */,

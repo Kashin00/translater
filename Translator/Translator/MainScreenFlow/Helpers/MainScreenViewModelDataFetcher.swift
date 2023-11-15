@@ -9,22 +9,30 @@ import Foundation
 
 protocol MainScreenViewModelDataFetcherInput: AnyObject {
     func loadLanguages() throws -> [Language]
+    func transtaledText(for model: TranslationModel) -> String?
 }
 
 class MainScreenViewModelDataFetcher: MainScreenViewModelDataFetcherInput {
     
     private var decoder: DataDecoderServiceInput
     private var fileReader: FileReaderServiceInput
+    private var translatorService: TranslatorServiceInput
     
     init(decoder: DataDecoderServiceInput = DataDecoderService(),
-         fileReader: FileReaderServiceInput = FileReaderService()) {
+         fileReader: FileReaderServiceInput = FileReaderService(),
+         translatorService: TranslatorServiceInput = TranslatorService()) {
         self.decoder = decoder
         self.fileReader = fileReader
+        self.translatorService = translatorService
     }
     
     func loadLanguages() throws -> [Language] {
         let data = try fileReader.fetchData(forResource: "Languages", withExtension: "json")
         let response: LanguagesResponse = try decoder.dataDecoder(for: data)
         return response.data.languages
+    }
+    
+    func transtaledText(for model: TranslationModel) -> String? {
+        translatorService.translate(with: model)
     }
 }
