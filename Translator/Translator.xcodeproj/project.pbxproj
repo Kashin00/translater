@@ -29,6 +29,8 @@
 		BAC3305A2B0019970011CFDE /* MainScreenViewModelDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC330592B0019970011CFDE /* MainScreenViewModelDataFetcher.swift */; };
 		BAC3305C2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3305B2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift */; };
 		BAC3305E2B0019E20011CFDE /* DataDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3305D2B0019E20011CFDE /* DataDecoderService.swift */; };
+		BAD47CA62B04CF7300790D3E /* TranlatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CA52B04CF7300790D3E /* TranlatorService.swift */; };
+		BAD47CA92B04D49700790D3E /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD47CA82B04D49700790D3E /* DataBaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		BAC330592B0019970011CFDE /* MainScreenViewModelDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelDataFetcher.swift; sourceTree = "<group>"; };
 		BAC3305B2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelDataHandler.swift; sourceTree = "<group>"; };
 		BAC3305D2B0019E20011CFDE /* DataDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoderService.swift; sourceTree = "<group>"; };
+		BAD47CA52B04CF7300790D3E /* TranlatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranlatorService.swift; sourceTree = "<group>"; };
+		BAD47CA82B04D49700790D3E /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,7 @@
 		BAC3304C2B000F460011CFDE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				BAD47CA72B04D48500790D3E /* Managers */,
 				BA2A5D8A2B023D7600A6D39D /* Extensions */,
 				BAC330552B0012780011CFDE /* Errors */,
 				BAC330522B0011530011CFDE /* Services */,
@@ -198,6 +203,7 @@
 			children = (
 				BAC330532B00117E0011CFDE /* FileReaderService.swift */,
 				BAC3305D2B0019E20011CFDE /* DataDecoderService.swift */,
+				BAD47CA52B04CF7300790D3E /* TranlatorService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -217,6 +223,14 @@
 				BAC3305B2B0019AA0011CFDE /* MainScreenViewModelDataHandler.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BAD47CA72B04D48500790D3E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BAD47CA82B04D49700790D3E /* DataBaseManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,7 +308,9 @@
 				BAC330572B0012840011CFDE /* FileError.swift in Sources */,
 				BAC330492AFFEBC10011CFDE /* TranslateView.swift in Sources */,
 				BAC3305A2B0019970011CFDE /* MainScreenViewModelDataFetcher.swift in Sources */,
+				BAD47CA92B04D49700790D3E /* DataBaseManager.swift in Sources */,
 				BAC3305E2B0019E20011CFDE /* DataDecoderService.swift in Sources */,
+				BAD47CA62B04CF7300790D3E /* TranlatorService.swift in Sources */,
 				BAC330442AFFE9070011CFDE /* MainScreenViewModel.swift in Sources */,
 				BA2A5D872B02216300A6D39D /* LanguageChangingView.swift in Sources */,
 				BAC330462AFFE90E0011CFDE /* MainScreenViewModelInput.swift in Sources */,
