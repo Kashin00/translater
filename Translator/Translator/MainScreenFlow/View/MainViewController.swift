@@ -75,11 +75,20 @@ private extension MainViewController {
 private extension MainViewController {
     func setupBindings() {
         createLanguageBinding()
+        createTranslationBinding()
     }
     
     func createLanguageBinding() {
         viewModel?.bindLanguages = { [weak self] currentLanguage, expectedLanguage in
             self?.languageChangingView.configute(with: currentLanguage, and: expectedLanguage)
+        }
+    }
+    
+    func createTranslationBinding() {
+        viewModel?.bindTranslation = { [weak self] translatedText in
+            DispatchQueue.main.async {
+                self?.translateView.translatedText(translatedText) 
+            }
         }
     }
 }

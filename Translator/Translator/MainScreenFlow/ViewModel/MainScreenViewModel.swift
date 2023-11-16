@@ -47,8 +47,12 @@ class MainScreenViewModel: MainScreenViewModelInput {
         
         Task {
             do {
-                let translatedText = try await dataHandler.transtaledText(for: translationModel)
-                print(translatedText)
+                if let translatedText = try await dataHandler.transtaledText(for: translationModel) {
+                    self.translationModel?.expectedText = translatedText
+                    bindTranslation?(translatedText)
+                } else {
+                    bindTranslation?("Translation Error!")
+                }
             } catch {
                 print(error.localizedDescription)
             }
