@@ -37,8 +37,8 @@ extension RequestItem: EndPointType {
         switch self {
         case .translate(let model):
             let postData = NSMutableData(data: "q=\(model.inputText)".data(using: String.Encoding.utf8)!)
-            postData.append("&target=\(model.expectedLanguageCode)".data(using: String.Encoding.utf8)!)
-            postData.append("&source=\(model.inputLanguageCode)".data(using: String.Encoding.utf8)!)
+            postData.append("&target=\(model.expectedLanguage.language)".data(using: String.Encoding.utf8)!)
+            postData.append("&source=\(model.inputLanguage.language)".data(using: String.Encoding.utf8)!)
             return postData
         }
     }

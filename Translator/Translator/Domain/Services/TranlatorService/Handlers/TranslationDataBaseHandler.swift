@@ -28,8 +28,8 @@ class TranslationDataBaseHandler: TranslationHandler {
         try dataBase
             .fetchObjectsOf(TranslatorModelEntity.self, predicate: nil)
             .first(where: {
-                $0.inputCode == model.inputLanguageCode &&
-                $0.expectedCode == model.expectedLanguageCode &&
+                $0.inputCode == model.inputLanguage.language &&
+                $0.expectedCode == model.expectedLanguage.language &&
                 $0.inputText == model.inputText
             })?.expectedText
     }

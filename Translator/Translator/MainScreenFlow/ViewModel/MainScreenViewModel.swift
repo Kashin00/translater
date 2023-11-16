@@ -10,10 +10,10 @@ import Foundation
 class MainScreenViewModel: MainScreenViewModelInput {
     
     var languages: [Language]?
-    private var currentLanguage: Language?
-    private var expectedLanguage: Language?
+    private var translationModel: TranslationModel?
     
     var bindLanguages: ((_ current: Language, _ expected: Language) -> ())?
+    var bindTranslation: ((String) -> ())?
     
     private var dataHandler: MainScreenViewModelDataHandlerInput
     
@@ -26,36 +26,28 @@ class MainScreenViewModel: MainScreenViewModelInput {
     }
     
     func needToChangeLanguage() {
-        let currentTempLanguage = self.currentLanguage
-        self.currentLanguage = expectedLanguage
-        self.expectedLanguage = currentTempLanguage
-        
+        translationModel?.changeLanguage()
         bindLanguagesIfAvailable()
     }
     
     func languageDidChanged(from language: Language?, to newLanguage: Language?) {
-        if language == currentLanguage {
-            currentLanguage = newLanguage
-        } else if language == expectedLanguage {
-            expectedLanguage = newLanguage
+        guard let newLanguage else { return }
+        if language == translationModel?.inputLanguage {
+            translationModel?.inputLanguage = newLanguage
+        } else if language == translationModel?.expectedLanguage {
+            translationModel?.expectedLanguage = newLanguage
         }
         
         bindLanguagesIfAvailable()
     }
     
     func translate(text: String?) {
-        guard let text,
-              let inputCode = currentLanguage?.language,
-              let expectedCode = expectedLanguage?.language else { return }
-        
-        let translatedModel = TranslationModel(inputLanguageCode: inputCode,
-                                               expectedLanguageCode: expectedCode,
-                                               inputText: text,
-                                               expectedText: "")
+        translationModel?.inputText = text ?? ""
+        guard let translationModel else { return }
         
         Task {
             do {
-                let translatedText = try await dataHandler.transtaledText(for: translatedModel)
+                let translatedText = try await dataHandler.transtaledText(for: translationModel)
                 print(translatedText)
             } catch {
                 print(error.localizedDescription)
@@ -69,8 +61,10 @@ class MainScreenViewModel: MainScreenViewModelInput {
             languages?.removeAll(where: { $0.languageName.isEmpty })
             languages?.sort(by: { $0.languageName < $1.languageName })
             
-            self.currentLanguage = languages?.first(where: { $0.language == "en" })
-            self.expectedLanguage = languages?.first
+            if let enLang = languages?.first(where: { $0.language == "en" }),
+               let firstLang = languages?.first {
+                self.translationModel = TranslationModel(inputLanguage: enLang, expectedLanguage: firstLang)
+            }
             bindLanguagesIfAvailable()
         } catch {
             print(error)
@@ -78,7 +72,8 @@ class MainScreenViewModel: MainScreenViewModelInput {
     }
     
     private func bindLanguagesIfAvailable() {
-        if let currentLanguage, let expectedLanguage {
+        if let currentLanguage = translationModel?.inputLanguage,
+            let expectedLanguage = translationModel?.expectedLanguage{
             bindLanguages?(currentLanguage, expectedLanguage)
         }
     }

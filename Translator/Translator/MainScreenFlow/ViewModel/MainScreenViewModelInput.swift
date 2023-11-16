@@ -19,4 +19,5 @@ protocol MainScreenViewModelInput: AnyObject {
     
     // bindings
     var bindLanguages: ((_ current: Language, _ expected: Language) -> ())? { get set }
+    var bindTranslation: ((String) -> ())? { get set }
 }

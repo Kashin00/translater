@@ -9,30 +9,43 @@ import Foundation
 
 struct TranslationModel: ManagedObjectConvertible {
     
-    let inputLanguageCode: String
-    let expectedLanguageCode: String
-    let inputText: String
+    var inputLanguage: Language
+    var expectedLanguage: Language
+    var inputText: String
     var expectedText: String
     
-    init(inputLanguageCode: String, expectedLanguageCode: String, inputText: String,
+    init(inputLanguage: Language, expectedLanguage: Language, inputText: String,
          expectedText: String) {
-        self.inputLanguageCode = inputLanguageCode
-        self.expectedLanguageCode = expectedLanguageCode
+        self.inputLanguage = inputLanguage
+        self.expectedLanguage = expectedLanguage
         self.inputText = inputText
         self.expectedText = expectedText
     }
     
+    init(inputLanguage: Language, expectedLanguage: Language) {
+        self.inputLanguage = inputLanguage
+        self.expectedLanguage = expectedLanguage
+        self.inputText = ""
+        self.expectedText = ""
+    }
+    
     init(dbEntity: TranslatorModelEntity) {
-        inputLanguageCode = dbEntity.inputCode ?? ""
-        expectedLanguageCode = dbEntity.expectedCode ?? ""
+        inputLanguage = Language(language: dbEntity.inputCode ?? "")
+        expectedLanguage = Language(language: dbEntity.expectedCode ?? "")
         self.inputText = dbEntity.inputText ?? ""
         self.expectedText = dbEntity.expectedText ?? ""
     }
       
     func copyPropertiesTo(_ object: TranslatorModelEntity) {
-        object.inputCode = inputLanguageCode
-        object.expectedCode = expectedLanguageCode
+        object.inputCode = inputLanguage.language
+        object.expectedCode = expectedLanguage.language
         object.inputText = inputText
         object.expectedText = expectedText
+    }
+    
+    mutating func changeLanguage() {
+        let currentTempLanguage = self.inputLanguage
+        self.inputLanguage = self.expectedLanguage
+        self.expectedLanguage = currentTempLanguage
     }
 }
