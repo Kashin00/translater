@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// API: https://rapidapi.com/googlecloud/api/google-translate1
 protocol NetworkManagerInput {
     func send<T: Codable>(_ request: URLRequest) async throws -> T
 }
